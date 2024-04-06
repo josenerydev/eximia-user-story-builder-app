@@ -102,35 +102,42 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="container">
+      {" "}
+      {/* Applying Bulma class for container styling */}
       <input
+        className="input"
         type="text"
         value={basicTitle}
         onChange={(e) => setBasicTitle(e.target.value)}
         placeholder="Basic Title"
       />
-
-      <select value={persona} onChange={(e) => setPersona(e.target.value)}>
-        {personas.map((p, index) => (
-          <option key={index} value={p}>
-            {p}
-          </option>
-        ))}
-      </select>
-
+      <div className="select">
+        {" "}
+        {/* Applying Bulma class for select styling */}
+        <select value={persona} onChange={(e) => setPersona(e.target.value)}>
+          {personas.map((p, index) => (
+            <option key={index} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
+      </div>
       <TaskForm
         taskInput={taskInput}
         setTaskInput={setTaskInput}
         handleAddTask={handleAddTask}
       />
-
       <TaskList tasks={tasks} />
-
-      <button onClick={handleSubmit}>Submit</button>
-      <button onClick={handleClear} className="clear-button">
+      <button className="button is-primary" onClick={handleSubmit}>
+        Submit
+      </button>
+      <button className="button is-danger" onClick={handleClear}>
         Clear
       </button>
-      <button onClick={handleInsertExample}>Insert Example</button>
+      <button className="button" onClick={handleInsertExample}>
+        Insert Example
+      </button>
       <ResponseBox response={response} copyToClipboard={copyToClipboard} />
     </div>
   );

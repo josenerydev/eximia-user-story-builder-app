@@ -1,4 +1,5 @@
 // ResponseBox.tsx
+// ResponseBox.tsx
 import React from "react";
 
 interface ResponseBoxProps {
@@ -12,10 +13,13 @@ const ResponseBox: React.FC<ResponseBoxProps> = ({
 }) => {
   return (
     <div>
-      <textarea value={response} readOnly className="response-box" />
-      <button onClick={copyToClipboard}>Copy</button>
+      <textarea className="textarea response-box" value={response} readOnly /> {/* Applying Bulma class for textarea styling */}
+      <button className="button" onClick={copyToClipboard}> {/* Applying Bulma class for button styling */}
+        Copy
+      </button>
     </div>
   );
 };
 
 export default ResponseBox;
+

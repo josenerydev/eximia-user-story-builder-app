@@ -7,7 +7,7 @@ interface TaskListProps {
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
-    <ul>
+    <ul className="menu-list"> {/* Applying Bulma class for list styling */}
       {tasks.map((task, index) => (
         <li key={index}>{task}</li>
       ))}
@@ -16,3 +16,4 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
 };
 
 export default TaskList;
+
