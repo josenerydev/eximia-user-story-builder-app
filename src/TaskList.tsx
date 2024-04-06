@@ -1,5 +1,7 @@
 // TaskList.tsx
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClipboard } from "@fortawesome/free-regular-svg-icons";
 
 interface TaskListProps {
   tasks: string[];
@@ -7,13 +9,14 @@ interface TaskListProps {
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
-    <ul className="menu-list"> {/* Applying Bulma class for list styling */}
+    <ul className="menu-list">
       {tasks.map((task, index) => (
-        <li key={index}>{task}</li>
+        <li key={index}>
+          <FontAwesomeIcon icon={faClipboard} /> {task}
+        </li>
       ))}
     </ul>
   );
 };
 
 export default TaskList;
-
