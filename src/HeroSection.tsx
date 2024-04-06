@@ -13,7 +13,7 @@ const HeroSection: React.FC<Props> = (props) => {
         <div className="container">
           <h1 className="title">Bem-vindo ao Eximia Story Builder</h1>
           <h2 className="subtitle">
-            A ferramenta definitiva para transformar ideias em User Stories concisas e impactantes. Agilize seu planejamento e fomente a colaboração com histórias que orientam o desenvolvimento focado no usuário. <a href="https://ontologia.eximia.co/frameworks/user-story-building/">Saiba mais</a>
+            A ferramenta definitiva para transformar ideias em User Stories concisas e impactantes. Agilize seu planejamento e fomente a colaboração com histórias que orientam o desenvolvimento focado no usuário. <a href="https://ontologia.eximia.co/frameworks/user-story-building/" target="_blank">Saiba mais</a>
           </h2>
         </div>
       </div>
