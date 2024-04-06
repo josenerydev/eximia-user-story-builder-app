@@ -4,6 +4,7 @@ import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import { handleSubmit } from "./submitHandler";
 import ResponseBox from "./ResponseBox";
+import MarkdownRenderWithCopy from './MarkdownRenderWithCopy';
 
 interface MainContentProps {
   // Define the props for your component here
@@ -132,7 +133,7 @@ const MainContent: React.FC<MainContentProps> = (props) => {
           Insert Example
         </a>
       </div>
-      <ResponseBox response={response} copyToClipboard={copyToClipboard} />
+      <MarkdownRenderWithCopy markdownText={response} />
     </>
   );
 };

@@ -1,0 +1,25 @@
+.markdown-container {
+    position: relative;
+    padding-top: 2rem; /* Espaço para o botão de cópia */
+  }
+  
+  .copy-button-container {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+  }
+  
+  .button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .icon-copy, .icon-check {
+    font-size: 0.9rem;
+  }
+  
+  .icon-check {
+    color: #28a745; /* Cor do ícone de verificação */
+  }
+  
