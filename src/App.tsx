@@ -1,7 +1,7 @@
 // App.tsx
 import "./App.css";
 import HeroSection from "./HeroSection";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 import MainContent from "./MainContent";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
           <MainContent />
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
