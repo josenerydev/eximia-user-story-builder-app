@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { IoIosCopy, IoIosCheckmarkCircleOutline } from "react-icons/io";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { vs2015 } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -12,39 +11,26 @@ const MarkdownRenderWithCopy = ({ markdownText }: { markdownText: string }) => {
   const notify = () => {
     toast("Copied to clipboard!");
     setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 5000);
+    setTimeout(() => setCopied(false), 5000);
   };
 
   return (
-    <div className="markdown-container">
-      <div className="copy-button-container">
-        <CopyToClipboard text={markdownText} onCopy={notify}>
-          <button className="button">
-            {copied ? (
-              <IoIosCheckmarkCircleOutline className="icon-check" />
-            ) : (
-              <IoIosCopy className="icon-copy" />
-            )}
-          </button>
-        </CopyToClipboard>
+    <div className="markdown-render-container">
+      <div className="markdown-content">
+        <ReactMarkdown>{markdownText}</ReactMarkdown>
       </div>
-      <SyntaxHighlighter
-        language="markdown"
-        style={vs2015}
-        wrapLines={true}
-        wrapLongLines={true}
-        showLineNumbers={false}
-        showInlineLineNumbers={false}
-        wordWrap="break-word"
-      >
-        {markdownText}
-      </SyntaxHighlighter>
-
+      <CopyToClipboard text={markdownText} onCopy={notify}>
+        <button className="copy-button">
+          {copied ? (
+            <IoIosCheckmarkCircleOutline className="icon-check" />
+          ) : (
+            <IoIosCopy className="icon-copy" />
+          )}
+        </button>
+      </CopyToClipboard>
       <ToastContainer
         position="bottom-right"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
