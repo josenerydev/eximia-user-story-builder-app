@@ -34,8 +34,8 @@ const MarkdownRenderWithCopy = ({ markdownText }: { markdownText: string }) => {
       </CopyToClipboard>
       <ToastContainer
         position="bottom-right"
-        autoClose={3000}
-        hideProgressBar
+        autoClose={5000}
+        hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
         rtl={false}
