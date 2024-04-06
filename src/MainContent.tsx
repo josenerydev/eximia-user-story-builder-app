@@ -5,7 +5,6 @@ import eximiaLogo from "./assets/eximia_logo_01.png";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import { handleSubmit } from "./submitHandler";
-import ResponseBox from "./ResponseBox";
 import MarkdownRenderWithCopy from "./MarkdownRenderWithCopy";
 
 interface MainContentProps {
