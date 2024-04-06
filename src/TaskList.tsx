@@ -9,9 +9,9 @@ interface TaskListProps {
 
 const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
-    <ul className="menu-list">
+    <ul className="menu-label">
       {tasks.map((task, index) => (
-        <li key={index}>
+        <li key={index} style={{ marginBottom: "10px" }}>
           <FontAwesomeIcon icon={faClipboard} /> {task}
         </li>
       ))}
