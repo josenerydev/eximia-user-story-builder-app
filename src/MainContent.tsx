@@ -78,16 +78,19 @@ const MainContent: React.FC<MainContentProps> = (props) => {
   };
 
   return (
-    <div className="container has-text-centered">
+    <div className="container has-text-centered is-max-desktop">
       <div className="columns is-centered">
         <div className="column is-half">
           <div className="box">
             <div className="has-text-centered">
-              <figure className="image is-128x128">
-                <img className="is-rounded" alt="Eximia Logo" src={eximiaLogo} />
+              <figure className="image is-128x128 has-text-centered mb-4 is-inline-block">
+                <img
+                  className="is-rounded"
+                  alt="Eximia Logo"
+                  src={eximiaLogo}
+                />
               </figure>
             </div>
-            
             <h1 className="title is-3">Eximia Story Builder</h1>
             <div className="field">
               <div className="control">
