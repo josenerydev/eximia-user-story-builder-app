@@ -4,7 +4,7 @@ import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import { handleSubmit } from "./submitHandler";
 import ResponseBox from "./ResponseBox";
-import MarkdownRenderWithCopy from './MarkdownRenderWithCopy';
+import MarkdownRenderWithCopy from "./MarkdownRenderWithCopy";
 
 interface MainContentProps {
   // Define the props for your component here
@@ -119,19 +119,29 @@ const MainContent: React.FC<MainContentProps> = (props) => {
       />
       <TaskList tasks={tasks} />
       <div className="buttons">
-        <a
+        <button
           className={`button is-primary ${isLoading ? "is-loading" : ""}`}
           onClick={onSubmit}
+          disabled={isLoading}
         >
           Submit
-        </a>
+        </button>
 
-        <a className="button is-link" onClick={handleClear}>
+        <button
+          className="button is-link"
+          onClick={handleClear}
+          disabled={isLoading}
+        >
           Clear
-        </a>
-        <a className="button is-warning" onClick={handleInsertExample}>
+        </button>
+
+        <button
+          className="button is-warning"
+          onClick={handleInsertExample}
+          disabled={isLoading}
+        >
           Insert Example
-        </a>
+        </button>
       </div>
       <MarkdownRenderWithCopy markdownText={response} />
     </>
