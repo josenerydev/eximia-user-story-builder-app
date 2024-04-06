@@ -78,73 +78,80 @@ const MainContent: React.FC<MainContentProps> = (props) => {
   };
 
   return (
-    <>
-      <div className="has-text-centered">
-        <figure className="image is-128x128">
-          <img className="is-rounded" alt="Eximia Logo" src={eximiaLogo} />
-        </figure>
-      </div>
-      <h1 className="title is-3">Eximia Story Builder</h1>
-      <div className="field">
-        <div className="control">
-          <input
-            className="input"
-            type="text"
-            value={basicTitle}
-            onChange={(e) => setBasicTitle(e.target.value)}
-            placeholder="Basic Title"
-          />
+    <div className="container has-text-centered">
+      <div className="columns is-centered">
+        <div className="column is-half">
+          <div className="box">
+            <div className="has-text-centered">
+              <figure className="image is-128x128">
+                <img className="is-rounded" alt="Eximia Logo" src={eximiaLogo} />
+              </figure>
+            </div>
+            
+            <h1 className="title is-3">Eximia Story Builder</h1>
+            <div className="field">
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  value={basicTitle}
+                  onChange={(e) => setBasicTitle(e.target.value)}
+                  placeholder="Basic Title"
+                />
+              </div>
+            </div>
+            <div className="field">
+              <p className="control">
+                <span className="select">
+                  <select
+                    value={persona}
+                    onChange={(e) => setPersona(e.target.value)}
+                  >
+                    {personas.map((p, index) => (
+                      <option key={index} value={p}>
+                        {p}
+                      </option>
+                    ))}
+                  </select>
+                </span>
+              </p>
+            </div>
+            <TaskForm
+              taskInput={taskInput}
+              setTaskInput={setTaskInput}
+              handleAddTask={handleAddTask}
+            />
+            <TaskList tasks={tasks} />
+            <div className="buttons">
+              <button
+                className={`button is-primary ${isLoading ? "is-loading" : ""}`}
+                onClick={onSubmit}
+                disabled={isLoading}
+              >
+                Submit
+              </button>
+
+              <button
+                className="button is-link"
+                onClick={handleClear}
+                disabled={isLoading}
+              >
+                Clear
+              </button>
+
+              <button
+                className="button is-warning"
+                onClick={handleInsertExample}
+                disabled={isLoading}
+              >
+                Insert Example
+              </button>
+            </div>
+            <MarkdownRenderWithCopy markdownText={response} />
+          </div>
         </div>
       </div>
-      <div className="field">
-        <p className="control">
-          <span className="select">
-            <select
-              value={persona}
-              onChange={(e) => setPersona(e.target.value)}
-            >
-              {personas.map((p, index) => (
-                <option key={index} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
-          </span>
-        </p>
-      </div>
-      <TaskForm
-        taskInput={taskInput}
-        setTaskInput={setTaskInput}
-        handleAddTask={handleAddTask}
-      />
-      <TaskList tasks={tasks} />
-      <div className="buttons">
-        <button
-          className={`button is-primary ${isLoading ? "is-loading" : ""}`}
-          onClick={onSubmit}
-          disabled={isLoading}
-        >
-          Submit
-        </button>
-
-        <button
-          className="button is-link"
-          onClick={handleClear}
-          disabled={isLoading}
-        >
-          Clear
-        </button>
-
-        <button
-          className="button is-warning"
-          onClick={handleInsertExample}
-          disabled={isLoading}
-        >
-          Insert Example
-        </button>
-      </div>
-      <MarkdownRenderWithCopy markdownText={response} />
-    </>
+    </div>
   );
 };
 
