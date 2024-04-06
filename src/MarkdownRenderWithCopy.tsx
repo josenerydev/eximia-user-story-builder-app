@@ -14,6 +14,10 @@ const MarkdownRenderWithCopy = ({ markdownText }: { markdownText: string }) => {
     setTimeout(() => setCopied(false), 5000);
   };
 
+  if (!markdownText) {
+    return null;
+  }
+
   return (
     <div className="markdown-render-container">
       <div className="markdown-content">
