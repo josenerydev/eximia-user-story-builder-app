@@ -78,8 +78,8 @@ const MainContent: React.FC<MainContentProps> = (props) => {
   };
 
   return (
-    <div className="container has-text-centered is-max-desktop">
-      <div className="columns is-centered">
+    <div className="container has-text-centered">
+      <div className="columns is-centered is-flex flex-grow">
         <div className="column is-half">
           <div className="box">
             <div className="has-text-centered">
@@ -103,8 +103,8 @@ const MainContent: React.FC<MainContentProps> = (props) => {
                 />
               </div>
             </div>
-            <div className="field">
-              <p className="control">
+            <div className="field is-flex is-justify-content-flex-start">
+              <div className="control flex-grow-1 pr-2">
                 <span className="select">
                   <select
                     value={persona}
@@ -117,15 +117,19 @@ const MainContent: React.FC<MainContentProps> = (props) => {
                     ))}
                   </select>
                 </span>
-              </p>
+              </div>
+
+              <div className="control flex-grow-1">
+                <TaskForm
+                  taskInput={taskInput}
+                  setTaskInput={setTaskInput}
+                  handleAddTask={handleAddTask}
+                />
+              </div>
             </div>
-            <TaskForm
-              taskInput={taskInput}
-              setTaskInput={setTaskInput}
-              handleAddTask={handleAddTask}
-            />
+
             <TaskList tasks={tasks} />
-            <div className="buttons">
+            <div className="buttons is-flex is-justify-content-flex-start">
               <button
                 className={`button is-primary ${isLoading ? "is-loading" : ""}`}
                 onClick={onSubmit}

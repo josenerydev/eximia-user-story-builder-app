@@ -9,7 +9,7 @@ function App() {
     <>
       <HeroSection />
       <section className="section">
-        <div className="container">
+      <div className="container">
           <MainContent />
         </div>
       </section>
