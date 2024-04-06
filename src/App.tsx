@@ -22,6 +22,18 @@ function App() {
     "Analista de Negócios",
   ];
 
+  const exampleTasks = [
+    "Ler arquivo de dívidas enviados aos domingos via SFTP",
+    "Processar arquivo para extrair dividas",
+    "Processar arquivo para extrair informações do consumidor referente a blocklist",
+  ];
+
+  const handleInsertExample = () => {
+    setBasicTitle("Carga de dívidas");
+    setPersona("Desenvolvedor de Software");
+    setTasks(exampleTasks);
+  };
+
   const handleAddTask = () => {
     if (taskInput.trim() !== "") {
       setTasks([...tasks, taskInput]);
@@ -68,15 +80,19 @@ function App() {
   };
 
   const handleClear = () => {
-    setBasicTitle("Carga de dívidas");
+    setBasicTitle("");
     setPersona("Desenvolvedor de Software");
-    setTasks(defaultTasks);
+    setTasks([]);
     setTaskInput("");
     setResponse("");
   };
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(response);
+    const textarea = document.querySelector(
+      ".response-box"
+    ) as HTMLTextAreaElement;
+    textarea.select();
+    document.execCommand("copy");
     alert("Copied to clipboard!");
   };
 
@@ -91,7 +107,9 @@ function App() {
 
       <select value={persona} onChange={(e) => setPersona(e.target.value)}>
         {personas.map((p, index) => (
-          <option key={index} value={p}>{p}</option>
+          <option key={index} value={p}>
+            {p}
+          </option>
         ))}
       </select>
 
@@ -115,6 +133,7 @@ function App() {
       <button onClick={handleClear} className="clear-button">
         Clear
       </button>
+      <button onClick={handleInsertExample}>Insert Example</button>
       <div>
         <textarea value={response} readOnly className="response-box" />
         <button onClick={copyToClipboard}>Copy</button>
