@@ -1,10 +1,15 @@
-import { useState } from "react";
+// App.tsx
+import React, { useState } from "react";
+import 'bulma/css/bulma.min.css';
 import "./App.css";
+import TaskList from "./TaskList";
+import TaskForm from "./TaskForm";
+import ResponseBox from "./ResponseBox";
 
 function App() {
   const defaultTasks = [
     "Ler arquivo de dívidas enviados aos domingos via SFTP",
-    "Processar arquivo para extrair dividas",
+    "Processar arquivo para extrair dívidas",
     "Processar arquivo para extrair informações do consumidor referente a blocklist",
   ];
 
@@ -24,7 +29,7 @@ function App() {
 
   const exampleTasks = [
     "Ler arquivo de dívidas enviados aos domingos via SFTP",
-    "Processar arquivo para extrair dividas",
+    "Processar arquivo para extrair dívidas",
     "Processar arquivo para extrair informações do consumidor referente a blocklist",
   ];
 
@@ -113,31 +118,20 @@ function App() {
         ))}
       </select>
 
-      <div>
-        <input
-          type="text"
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
-          placeholder="New Task"
-        />
-        <button onClick={handleAddTask}>Add Task</button>
-      </div>
+      <TaskForm
+        taskInput={taskInput}
+        setTaskInput={setTaskInput}
+        handleAddTask={handleAddTask}
+      />
 
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>{task}</li>
-        ))}
-      </ul>
+      <TaskList tasks={tasks} />
 
       <button onClick={handleSubmit}>Submit</button>
       <button onClick={handleClear} className="clear-button">
         Clear
       </button>
       <button onClick={handleInsertExample}>Insert Example</button>
-      <div>
-        <textarea value={response} readOnly className="response-box" />
-        <button onClick={copyToClipboard}>Copy</button>
-      </div>
+      <ResponseBox response={response} copyToClipboard={copyToClipboard} />
     </div>
   );
 }
