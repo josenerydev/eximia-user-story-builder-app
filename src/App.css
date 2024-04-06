@@ -1,28 +1,32 @@
 .markdown-render-container {
-    position: relative;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-  }
-  
-  .markdown-content {
-    overflow: auto;
-  }
-  
-  .copy-button {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  .icon-copy, .icon-check {
-    font-size: 1.5rem;
-  }
-  
-  .icon-check {
-    color: #28a745; /* Cor do ícone de verificação */
-  }
-  
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.markdown-content {
+  overflow: auto;
+}
+
+.markdown-left-align {
+  text-align: left;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.icon-copy,
+.icon-check {
+  font-size: 1.5rem;
+}
+
+.icon-check {
+  color: #28a745; /* Cor do ícone de verificação */
+}

@@ -20,7 +20,7 @@ const MarkdownRenderWithCopy = ({ markdownText }: { markdownText: string }) => {
 
   return (
     <div className="markdown-render-container">
-      <div className="markdown-content">
+      <div className="markdown-content markdown-left-align">
         <ReactMarkdown>{markdownText}</ReactMarkdown>
       </div>
       <CopyToClipboard text={markdownText} onCopy={notify}>

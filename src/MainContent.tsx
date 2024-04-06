@@ -1,5 +1,7 @@
+// MainContent.tsx
+
 import React, { useState } from "react";
-import eximiaLogo from "./assets/eximia_logo_01.jpg";
+import eximiaLogo from "./assets/eximia_logo_01.png";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
 import { handleSubmit } from "./submitHandler";
@@ -80,7 +82,7 @@ const MainContent: React.FC<MainContentProps> = (props) => {
   return (
     <div className="container has-text-centered">
       <div className="columns is-centered is-flex flex-grow">
-        <div className="column is-half">
+        <div className="column is-three-quarters">
           <div className="box">
             <div className="has-text-centered">
               <figure className="image is-128x128 has-text-centered mb-4 is-inline-block">
@@ -133,7 +135,9 @@ const MainContent: React.FC<MainContentProps> = (props) => {
               <button
                 className={`button is-primary ${isLoading ? "is-loading" : ""}`}
                 onClick={onSubmit}
-                disabled={isLoading}
+                disabled={
+                  isLoading || basicTitle.trim() === "" || tasks.length === 0
+                }
               >
                 Submit
               </button>
