@@ -1,6 +1,6 @@
 // App.tsx
-import React, { useState } from "react";
-import 'bulma/css/bulma.min.css';
+import { useState } from "react";
+import "bulma/css/bulma.min.css";
 import "./App.css";
 import TaskList from "./TaskList";
 import TaskForm from "./TaskForm";
@@ -15,7 +15,7 @@ function App() {
 
   const [basicTitle, setBasicTitle] = useState("Carga de dívidas");
   const [persona, setPersona] = useState("Desenvolvedor de Software");
-  const [tasks, setTasks] = useState<string[]>(defaultTasks);
+  const [tasks, setTasks] = useState<string[]>([]);
   const [taskInput, setTaskInput] = useState("");
   const [response, setResponse] = useState("");
 
